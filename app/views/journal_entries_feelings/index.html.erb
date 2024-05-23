@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all journal entries feelings
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new journal entries feeling
+    </h2>
+
+    <form action="/insert_journal_entries_feeling" method="post">
+      <div>
+        <label for="journal_entry_id_box">
+          Journal entry
+        </label>
+
+        <input type="text" id="journal_entry_id_box" name="query_journal_entry_id">
+      </div>
+
+      <div>
+        <label for="feelings_level_1s_count_box">
+          Feelings level 1s count
+        </label>
+
+        <input type="text" id="feelings_level_1s_count_box" name="query_feelings_level_1s_count">
+      </div>
+
+      <button>
+        Create journal entries feeling
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Journal entry
+        </th>
+
+        <th>
+          Feelings level 1s count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_journal_entries_feelings.each do |a_journal_entries_feeling| %>
+      <tr>
+        <td>
+          <%= a_journal_entries_feeling.id %>
+        </td>
+
+        <td>
+          <%= a_journal_entries_feeling.journal_entry_id %>
+        </td>
+
+        <td>
+          <%= a_journal_entries_feeling.feelings_level_1s_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_journal_entries_feeling.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_journal_entries_feeling.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/journal_entries_feelings/<%= a_journal_entries_feeling.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

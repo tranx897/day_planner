@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      Goal #<%= @the_goal.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/goals">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_goal/<%= @the_goal.id %>">
+          Delete goal
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_goal.name %>
+      </dd>
+
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @the_goal.category_id %>
+      </dd>
+
+      <dt>
+        Start date
+      </dt>
+      <dd>
+        <%= @the_goal.start_date %>
+      </dd>
+
+      <dt>
+        End date
+      </dt>
+      <dd>
+        <%= @the_goal.end_date %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_goal.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_goal.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit goal
+    </h2>
+
+    <form action="/modify_goal/<%= @the_goal.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_goal.name %>">
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id" value="<%= @the_goal.category_id %>">
+      </div>
+
+      <div>
+        <label for="start_date_box">
+          Start date
+        </label>
+
+        <input type="datetime-local" id="start_date_box" name="query_start_date"
+         value="<%= @the_goal.start_date %>">
+      </div>
+
+      <div>
+        <label for="end_date_box">
+          End date
+        </label>
+
+        <input type="datetime-local" id="end_date_box" name="query_end_date"
+         value="<%= @the_goal.end_date %>">
+      </div>
+
+      <button>
+        Update goal
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

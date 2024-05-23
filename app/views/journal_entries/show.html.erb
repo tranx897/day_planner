@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Journal entry #<%= @the_journal_entry.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/journal_entries">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_journal_entry/<%= @the_journal_entry.id %>">
+          Delete journal entry
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_journal_entry.user_id %>
+      </dd>
+
+      <dt>
+        Date
+      </dt>
+      <dd>
+        <%= @the_journal_entry.date %>
+      </dd>
+
+      <dt>
+        Note
+      </dt>
+      <dd>
+        <%= @the_journal_entry.note %>
+      </dd>
+
+      <dt>
+        Journal entries feelings count
+      </dt>
+      <dd>
+        <%= @the_journal_entry.journal_entries_feelings_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_journal_entry.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_journal_entry.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit journal entry
+    </h2>
+
+    <form action="/modify_journal_entry/<%= @the_journal_entry.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_journal_entry.user_id %>">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="text" id="date_box" name="query_date" value="<%= @the_journal_entry.date %>">
+      </div>
+
+      <div>
+        <label for="note_box">
+          Note
+        </label>
+
+        <input type="text" id="note_box" name="query_note" value="<%= @the_journal_entry.note %>">
+      </div>
+
+      <div>
+        <label for="journal_entries_feelings_count_box">
+          Journal entries feelings count
+        </label>
+
+        <input type="text" id="journal_entries_feelings_count_box" name="query_journal_entries_feelings_count" value="<%= @the_journal_entry.journal_entries_feelings_count %>">
+      </div>
+
+      <button>
+        Update journal entry
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

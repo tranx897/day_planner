@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Feelings level 1 #<%= @the_feelings_level_1.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/feelings_level_1s">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_feelings_level_1/<%= @the_feelings_level_1.id %>">
+          Delete feelings level 1
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_feelings_level_1.name %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_feelings_level_1.description %>
+      </dd>
+
+      <dt>
+        Journal entry feelings
+      </dt>
+      <dd>
+        <%= @the_feelings_level_1.journal_entry_feelings_id %>
+      </dd>
+
+      <dt>
+        Feelings level 2s count
+      </dt>
+      <dd>
+        <%= @the_feelings_level_1.feelings_level_2s_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_feelings_level_1.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_feelings_level_1.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit feelings level 1
+    </h2>
+
+    <form action="/modify_feelings_level_1/<%= @the_feelings_level_1.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_feelings_level_1.name %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_feelings_level_1.description %>">
+      </div>
+
+      <div>
+        <label for="journal_entry_feelings_id_box">
+          Journal entry feelings
+        </label>
+
+        <input type="text" id="journal_entry_feelings_id_box" name="query_journal_entry_feelings_id" value="<%= @the_feelings_level_1.journal_entry_feelings_id %>">
+      </div>
+
+      <div>
+        <label for="feelings_level_2s_count_box">
+          Feelings level 2s count
+        </label>
+
+        <input type="text" id="feelings_level_2s_count_box" name="query_feelings_level_2s_count" value="<%= @the_feelings_level_1.feelings_level_2s_count %>">
+      </div>
+
+      <button>
+        Update feelings level 1
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

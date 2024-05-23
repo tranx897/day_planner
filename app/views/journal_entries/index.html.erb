@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all journal entries
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new journal entry
+    </h2>
+
+    <form action="/insert_journal_entry" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="text" id="date_box" name="query_date">
+      </div>
+
+      <div>
+        <label for="note_box">
+          Note
+        </label>
+
+        <input type="text" id="note_box" name="query_note">
+      </div>
+
+      <div>
+        <label for="journal_entries_feelings_count_box">
+          Journal entries feelings count
+        </label>
+
+        <input type="text" id="journal_entries_feelings_count_box" name="query_journal_entries_feelings_count">
+      </div>
+
+      <button>
+        Create journal entry
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+          Note
+        </th>
+
+        <th>
+          Journal entries feelings count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_journal_entries.each do |a_journal_entry| %>
+      <tr>
+        <td>
+          <%= a_journal_entry.id %>
+        </td>
+
+        <td>
+          <%= a_journal_entry.user_id %>
+        </td>
+
+        <td>
+          <%= a_journal_entry.date %>
+        </td>
+
+        <td>
+          <%= a_journal_entry.note %>
+        </td>
+
+        <td>
+          <%= a_journal_entry.journal_entries_feelings_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_journal_entry.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_journal_entry.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/journal_entries/<%= a_journal_entry.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

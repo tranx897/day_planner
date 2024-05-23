@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all feelings level 1s
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new feelings level 1
+    </h2>
+
+    <form action="/insert_feelings_level_1" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description">
+      </div>
+
+      <div>
+        <label for="journal_entry_feelings_id_box">
+          Journal entry feelings
+        </label>
+
+        <input type="text" id="journal_entry_feelings_id_box" name="query_journal_entry_feelings_id">
+      </div>
+
+      <div>
+        <label for="feelings_level_2s_count_box">
+          Feelings level 2s count
+        </label>
+
+        <input type="text" id="feelings_level_2s_count_box" name="query_feelings_level_2s_count">
+      </div>
+
+      <button>
+        Create feelings level 1
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Journal entry feelings
+        </th>
+
+        <th>
+          Feelings level 2s count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_feelings_level_1s.each do |a_feelings_level_1| %>
+      <tr>
+        <td>
+          <%= a_feelings_level_1.id %>
+        </td>
+
+        <td>
+          <%= a_feelings_level_1.name %>
+        </td>
+
+        <td>
+          <%= a_feelings_level_1.description %>
+        </td>
+
+        <td>
+          <%= a_feelings_level_1.journal_entry_feelings_id %>
+        </td>
+
+        <td>
+          <%= a_feelings_level_1.feelings_level_2s_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_feelings_level_1.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_feelings_level_1.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/feelings_level_1s/<%= a_feelings_level_1.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

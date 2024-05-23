@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all feelings level 3s
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new feelings level 3
+    </h2>
+
+    <form action="/insert_feelings_level_3" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description">
+      </div>
+
+      <div>
+        <label for="feeling_level2_id_box">
+          Feeling level2
+        </label>
+
+        <input type="text" id="feeling_level2_id_box" name="query_feeling_level2_id">
+      </div>
+
+      <button>
+        Create feelings level 3
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Feeling level2
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_feelings_level_3s.each do |a_feelings_level_3| %>
+      <tr>
+        <td>
+          <%= a_feelings_level_3.id %>
+        </td>
+
+        <td>
+          <%= a_feelings_level_3.name %>
+        </td>
+
+        <td>
+          <%= a_feelings_level_3.description %>
+        </td>
+
+        <td>
+          <%= a_feelings_level_3.feeling_level2_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_feelings_level_3.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_feelings_level_3.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/feelings_level_3s/<%= a_feelings_level_3.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

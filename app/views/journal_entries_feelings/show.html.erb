@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Journal entries feeling #<%= @the_journal_entries_feeling.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/journal_entries_feelings">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_journal_entries_feeling/<%= @the_journal_entries_feeling.id %>">
+          Delete journal entries feeling
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Journal entry
+      </dt>
+      <dd>
+        <%= @the_journal_entries_feeling.journal_entry_id %>
+      </dd>
+
+      <dt>
+        Feelings level 1s count
+      </dt>
+      <dd>
+        <%= @the_journal_entries_feeling.feelings_level_1s_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_journal_entries_feeling.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_journal_entries_feeling.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit journal entries feeling
+    </h2>
+
+    <form action="/modify_journal_entries_feeling/<%= @the_journal_entries_feeling.id %>"  method="post" >
+      <div>
+        <label for="journal_entry_id_box">
+          Journal entry
+        </label>
+
+        <input type="text" id="journal_entry_id_box" name="query_journal_entry_id" value="<%= @the_journal_entries_feeling.journal_entry_id %>">
+      </div>
+
+      <div>
+        <label for="feelings_level_1s_count_box">
+          Feelings level 1s count
+        </label>
+
+        <input type="text" id="feelings_level_1s_count_box" name="query_feelings_level_1s_count" value="<%= @the_journal_entries_feeling.feelings_level_1s_count %>">
+      </div>
+
+      <button>
+        Update journal entries feeling
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

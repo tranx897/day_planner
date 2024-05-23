@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      Task #<%= @the_task.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/tasks">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_task/<%= @the_task.id %>">
+          Delete task
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Start time
+      </dt>
+      <dd>
+        <%= @the_task.start_time %>
+      </dd>
+
+      <dt>
+        End time
+      </dt>
+      <dd>
+        <%= @the_task.end_time %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_task.status %>
+      </dd>
+
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @the_task.category_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_task.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_task.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit task
+    </h2>
+
+    <form action="/modify_task/<%= @the_task.id %>"  method="post" >
+      <div>
+        <label for="start_time_box">
+          Start time
+        </label>
+
+        <input type="datetime-local" id="start_time_box" name="query_start_time"
+         value="<%= @the_task.start_time %>">
+      </div>
+
+      <div>
+        <label for="end_time_box">
+          End time
+        </label>
+
+        <input type="datetime-local" id="end_time_box" name="query_end_time"
+         value="<%= @the_task.end_time %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="status_box" name="query_status" value="1" <%= "checked" if @the_task.status %>>
+
+        <label for="status_box">
+            Status
+        </label>
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id" value="<%= @the_task.category_id %>">
+      </div>
+
+      <button>
+        Update task
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

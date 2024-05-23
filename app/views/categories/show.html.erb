@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Category #<%= @the_category.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/categories">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_category/<%= @the_category.id %>">
+          Delete category
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_category.name %>
+      </dd>
+
+      <dt>
+        Color
+      </dt>
+      <dd>
+        <%= @the_category.color %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_category.user_id %>
+      </dd>
+
+      <dt>
+        Tasks count
+      </dt>
+      <dd>
+        <%= @the_category.tasks_count %>
+      </dd>
+
+      <dt>
+        Goals count
+      </dt>
+      <dd>
+        <%= @the_category.goals_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_category.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_category.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit category
+    </h2>
+
+    <form action="/modify_category/<%= @the_category.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_category.name %>">
+      </div>
+
+      <div>
+        <label for="color_box">
+          Color
+        </label>
+
+        <input type="text" id="color_box" name="query_color" value="<%= @the_category.color %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_category.user_id %>">
+      </div>
+
+      <div>
+        <label for="tasks_count_box">
+          Tasks count
+        </label>
+
+        <input type="text" id="tasks_count_box" name="query_tasks_count" value="<%= @the_category.tasks_count %>">
+      </div>
+
+      <div>
+        <label for="goals_count_box">
+          Goals count
+        </label>
+
+        <input type="text" id="goals_count_box" name="query_goals_count" value="<%= @the_category.goals_count %>">
+      </div>
+
+      <button>
+        Update category
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
