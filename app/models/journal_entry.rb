@@ -11,4 +11,6 @@
 #  user_id                        :integer
 #
 class JournalEntry < ApplicationRecord
+  belongs_to :user, required: true, class_name: "User", foreign_key: "user_id", counter_cache: true
+  has_many  :journal_entries_feelings, class_name: "JournalEntriesFeeling", foreign_key: "journal_entry_id", dependent: :nullify
 end

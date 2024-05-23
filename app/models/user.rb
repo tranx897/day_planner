@@ -24,4 +24,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :categories, class_name: "Category", foreign_key: "user_id", dependent: :destroy
+  has_many  :journal_entries, class_name: "JournalEntry", foreign_key: "user_id", dependent: :nullify
+  has_many :tasks, through: :categories, source: :tasks
+  has_many :goals, through: :categories, source: :goals
+
 end

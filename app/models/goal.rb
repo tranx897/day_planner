@@ -11,4 +11,6 @@
 #  category_id :integer
 #
 class Goal < ApplicationRecord
+  belongs_to :category, class_name: "Category", foreign_key: "category_id", counter_cache: true
+  has_one  :user, through: :category, source: :user
 end

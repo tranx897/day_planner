@@ -12,4 +12,7 @@
 #  user_id     :integer
 #
 class Category < ApplicationRecord
+  belongs_to :user, required: true, class_name: "User", foreign_key: "user_id", counter_cache: true
+  has_many  :tasks, class_name: "Task", foreign_key: "category_id", dependent: :nullify
+  has_many  :goals, class_name: "Goal", foreign_key: "category_id", dependent: :nullify
 end
