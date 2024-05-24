@@ -1,1 +1,42 @@
-<h1>Hello</h1>
+<% current_time = Time.current%>
+<% local_time = current_time.in_time_zone("Pacific Time (US & Canada)")%>
+
+<% start_time = Time.new(local_time.year, local_time.month, local_time.day, 7,0,0) %>
+<% end_time = Time.new(local_time.year, local_time.month, local_time.day, 23,0,0) %>
+
+<h1><%= local_time.strftime("%A, %B %d %Y %I:%M %p %Z") %></h1>
+
+<div style="width: 100%; display: table;">
+  <div style="display: table-row">
+    <div style="width: 600px; display: table-cell;">
+      <table border="1">
+        <tr>
+          <th>Time</th>
+          <th>Task</th>
+        </tr>
+
+        <% time = start_time %>
+        <% while time < end_time do%>
+          <tr>
+            <td>
+              <%=time.strftime("%I:%M %p")%>
+            </td>
+            <td></td>
+            <% time += 30.minutes%>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div style="display: table-cell;">
+      <h2>Journal Entry</h2>
+      <label for="feeling_level1">I'm feeling</label>
+      <select name="feeling_level1" id="feeling_level1">
+        <% FeelingsLevel1.all.each do |feeling_level1|%>
+          <option value="<%= feeling_level1.id %>">feeling_level1.name</option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+</div>
