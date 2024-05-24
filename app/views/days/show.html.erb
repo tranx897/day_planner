@@ -30,12 +30,24 @@
 
     <div style="display: table-cell;">
       <h2>Journal Entry</h2>
-      <label for="feeling_level1">I'm feeling</label>
-      <select name="feeling_level1" id="feeling_level1">
-        <% FeelingsLevel1.all.each do |feeling_level1|%>
-          <option value="<%= feeling_level1.id %>">feeling_level1.name</option>
-        <% end %>
-      </select>
+      <form action="/update_journal">
+        <label for="feeling_level1">I'm feeling</label>
+        <select name="feeling_level1" id="feeling_level1">
+          <% FeelingsLevel1.all.each do |feeling_level1|%>
+            <option value="<%= feeling_level1.id %>">feeling_level1.name</option>
+          <% end %>
+        </select>
+
+        <div>
+          <h4><label for="note">Some notes for today</label></h3>
+        </div>
+
+        <div>
+          <textarea name="note" id="note"></textarea>
+        </div>
+        
+        <button>Save entry</button>
+      </form>
     </div>
   </div>
 
