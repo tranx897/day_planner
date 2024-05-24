@@ -1,53 +1,51 @@
-<% current_time = Time.current%>
-<% local_time = current_time.in_time_zone("Pacific Time (US & Canada)")%>
-
-<% start_time = Time.new(local_time.year, local_time.month, local_time.day, 7,0,0) %>
-<% end_time = Time.new(local_time.year, local_time.month, local_time.day, 23,0,0) %>
-
-<h1><%= local_time.strftime("%A, %B %d %Y %I:%M %p %Z") %></h1>
+<h1><%= @current_local_time.strftime("%A, %B %d %Y %I:%M %p %Z") %></h1>
 
 <div style="width: 100%; display: table;">
   <div style="display: table-row">
     <div style="width: 600px; display: table-cell;">
-      <table border="1">
-        <tr>
-          <th>Time</th>
-          <th>Task</th>
-        </tr>
-
-        <% time = start_time %>
-        <% while time < end_time do%>
-          <tr>
-            <td>
-              <%=time.strftime("%I:%M %p")%>
-            </td>
-            <td></td>
-            <% time += 30.minutes%>
-          </tr>
+      <%= calendar(number_of_days: 1) do |date| %>
+        <% time = @start_time %>
+        <% while time < @end_time do%>
+          <div>
+            <%=time.strftime("%I:%M %p")%>
+          </div>
+          <% time += 30.minutes%>
         <% end %>
-      </table>
+      <% end %>
     </div>
 
     <div style="display: table-cell;">
-      <h2>Journal Entry</h2>
-      <form action="/update_journal">
-        <label for="feeling_level1">I'm feeling</label>
-        <select name="feeling_level1" id="feeling_level1">
-          <% FeelingsLevel1.all.each do |feeling_level1|%>
-            <option value="<%= feeling_level1.id %>">feeling_level1.name</option>
-          <% end %>
-        </select>
+      <div>
+        <h1><%= ((@end_time - @current_local_time) / 1.hour).round(1) %></h1>
+        <p>Hours until end of day</p>
+      </div>
 
-        <div>
-          <h4><label for="note">Some notes for today</label></h3>
-        </div>
+      <div>
+        <h3>To-do list</h2>
 
-        <div>
-          <textarea name="note" id="note"></textarea>
-        </div>
-        
-        <button>Save entry</button>
-      </form>
+      </div>
+
+      <div>
+        <h3>Journal Entry</h2>
+        <form action="/update_journal">
+          <label for="feeling_level1">I'm feeling</label>
+          <select name="feeling_level1" id="feeling_level1">
+            <% FeelingsLevel1.all.each do |feeling_level1|%>
+              <option value="<%= feeling_level1.id %>">feeling_level1.name</option>
+            <% end %>
+          </select>
+
+          <div>
+            <h5><label for="note">Some notes for today</label></h5>
+          </div>
+
+          <div>
+            <textarea name="note" id="note" class="form-control" rows="5"></textarea>
+          </div>
+
+          <button type="button" class="btn btn-primary">Save entry</button>
+        </form>
+      </div>
     </div>
   </div>
 

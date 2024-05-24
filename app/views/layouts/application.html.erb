@@ -9,11 +9,21 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.css">
-
   </head>
 
   <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <a class="navbar-brand" style="color: black" href="#">Day Planner</a>
+        <% if current_user != nil%>
+          <a class="nav-item-active nav-link" style="color: black" href="#">Today<span class="sr-only">(current)</span></a>
+          <a class="nav-item-active nav-link" style="color: black" href="#">This Week</a>
+          <a class="nav-item-active nav-link" style="color: black" href="#">Journals</a>
+        <% else %>
+          <a class="nav-item-active nav-link" style="color: black" href="/users/sign_in">Sign in</a>
+          <a class="nav-item-active nav-link" style="color: black" href="/users/sign_up">Sign up</a>
+        <% end %>
+    </nav>
+
     <% if notice.present? %>
       <div> style="color:green" 
         <%= notice %>
