@@ -25,13 +25,13 @@
     </nav>
 
     <% if notice.present? %>
-      <div> style="color:green" 
+      <div style="color:green">
         <%= notice %>
       </div>
     <% end %>
 
     <% if alert.present? %>
-      <div>
+      <div style="color:red">
         <%= alert %>
       </div>
     <% end %>

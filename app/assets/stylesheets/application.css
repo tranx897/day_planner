@@ -491,6 +491,7 @@ pre {
     max-width: 1140px; } }
 
 .row {
+  outline: 1px dotted rgba(0, 0, 0, 0.25);
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
@@ -516,6 +517,7 @@ pre {
   padding-left: 15px; }
 
 .col {
+  outline: 1px dotted rgba(0, 0, 0, 0.5);
   flex-basis: 0;
   flex-grow: 1;
   min-width: 0;
@@ -7171,3 +7173,8 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+
+
+  .btn-task {
+    line-height: 0.5;
+  }

@@ -4,6 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  end_time    :datetime
+#  name        :string
 #  start_time  :datetime
 #  status      :boolean
 #  created_at  :datetime         not null

@@ -1,22 +1,34 @@
-<h1><%= @current_local_time.strftime("%A, %B %d %Y %I:%M %p %Z") %></h1>
+<!--<h1><%#= @start_time.strftime("%A, %B %d %Y %I:%M %p %Z") %></h1>-->
 
-<div style="width: 100%; display: table;">
-  <div style="display: table-row">
-    <div style="width: 600px; display: table-cell;">
-      <%= calendar(number_of_days: 1) do |date| %>
-        <% time = @start_time %>
-        <% while time < @end_time do%>
-          <div>
-            <%=time.strftime("%I:%M %p")%>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= calendar(number_of_days: 1, events: @tasks) do |date, tasks| %>
+        <% time = @day_start_time %>
+        <% while time < @day_end_time do%>
+          <div class="row">
+            <div class="col-2">
+              <%=time.strftime("%I:%M %p")%>
+            </div>
+            <div class="col" action="/tasks/create">
+              <% matching_tasks = @tasks.where("start_time >= ?", time)%>
+              <% matching_tasks.each do |task|%>
+                <button type="button" class="btn btn-light btn-task">
+                  <%= task.name %>
+                  <input type="checkbox">
+                </button>
+              <% end %>
+            </div>
           </div>
+          <hr style="margin-top: 0.2rem; margin-bottom: 0.2rem;">
           <% time += 30.minutes%>
         <% end %>
       <% end %>
     </div>
 
-    <div style="display: table-cell;">
+    <div class="col">
       <div>
-        <h1><%= ((@end_time - @current_local_time) / 1.hour).round(1) %></h1>
+        <h1><%= ((@day_end_time - @start_time) / 1.hour).round(1) %></h1>
         <p>Hours until end of day</p>
       </div>
 
