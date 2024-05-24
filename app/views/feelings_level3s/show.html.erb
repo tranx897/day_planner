@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Feelings level3 #<%= @the_feelings_level3.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/feelings_level3s">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_feelings_level3/<%= @the_feelings_level3.id %>">
+          Delete feelings level3
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_feelings_level3.name %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_feelings_level3.description %>
+      </dd>
+
+      <dt>
+        Feeling level2
+      </dt>
+      <dd>
+        <%= @the_feelings_level3.feeling_level2_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_feelings_level3.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_feelings_level3.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit feelings level3
+    </h2>
+
+    <form action="/modify_feelings_level3/<%= @the_feelings_level3.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_feelings_level3.name %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_feelings_level3.description %>">
+      </div>
+
+      <div>
+        <label for="feeling_level2_id_box">
+          Feeling level2
+        </label>
+
+        <input type="text" id="feeling_level2_id_box" name="query_feeling_level2_id" value="<%= @the_feelings_level3.feeling_level2_id %>">
+      </div>
+
+      <button>
+        Update feelings level3
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,5 +1,62 @@
 Rails.application.routes.draw do
   
+  # Routes for the Feelings level3 resource:
+
+  # CREATE
+  post("/insert_feelings_level3", { :controller => "feelings_level3s", :action => "create" })
+          
+  # READ
+  get("/feelings_level3s", { :controller => "feelings_level3s", :action => "index" })
+  
+  get("/feelings_level3s/:path_id", { :controller => "feelings_level3s", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_feelings_level3/:path_id", { :controller => "feelings_level3s", :action => "update" })
+  
+  # DELETE
+  get("/delete_feelings_level3/:path_id", { :controller => "feelings_level3s", :action => "destroy" })
+
+  #------------------------------
+
+  # Routes for the Feelings level2 resource:
+
+  # CREATE
+  post("/insert_feelings_level2", { :controller => "feelings_level2s", :action => "create" })
+          
+  # READ
+  get("/feelings_level2s", { :controller => "feelings_level2s", :action => "index" })
+  
+  get("/feelings_level2s/:path_id", { :controller => "feelings_level2s", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_feelings_level2/:path_id", { :controller => "feelings_level2s", :action => "update" })
+  
+  # DELETE
+  get("/delete_feelings_level2/:path_id", { :controller => "feelings_level2s", :action => "destroy" })
+
+  #------------------------------
+
+  # Routes for the Feelings level1 resource:
+
+  # CREATE
+  post("/insert_feelings_level1", { :controller => "feelings_level1s", :action => "create" })
+          
+  # READ
+  get("/feelings_level1s", { :controller => "feelings_level1s", :action => "index" })
+  
+  get("/feelings_level1s/:path_id", { :controller => "feelings_level1s", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_feelings_level1/:path_id", { :controller => "feelings_level1s", :action => "update" })
+  
+  # DELETE
+  get("/delete_feelings_level1/:path_id", { :controller => "feelings_level1s", :action => "destroy" })
+
+  #------------------------------
+
   root to: "days#show"
   # Routes for the Journal entries feeling resource:
 

@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all feelings level 3s
+      List of all feelings level3s
     </h1>
   </div>
 </div>
@@ -11,10 +11,10 @@
 <div>
   <div>
     <h2>
-      Add a new feelings level 3
+      Add a new feelings level3
     </h2>
 
-    <form action="/insert_feelings_level_3" method="post">
+    <form action="/insert_feelings_level3" method="post">
       <div>
         <label for="name_box">
           Name
@@ -40,7 +40,7 @@
       </div>
 
       <button>
-        Create feelings level 3
+        Create feelings level3
       </button>
     </form>
   </div>
@@ -79,33 +79,33 @@
         </th>
       </tr>
 
-      <% @list_of_feelings_level_3s.each do |a_feelings_level_3| %>
+      <% @list_of_feelings_level3s.each do |a_feelings_level3| %>
       <tr>
         <td>
-          <%= a_feelings_level_3.id %>
+          <%= a_feelings_level3.id %>
         </td>
 
         <td>
-          <%= a_feelings_level_3.name %>
+          <%= a_feelings_level3.name %>
         </td>
 
         <td>
-          <%= a_feelings_level_3.description %>
+          <%= a_feelings_level3.description %>
         </td>
 
         <td>
-          <%= a_feelings_level_3.feeling_level2_id %>
+          <%= a_feelings_level3.feeling_level2_id %>
         </td>
 
         <td>
-          <%= time_ago_in_words(a_feelings_level_3.created_at) %> ago
+          <%= time_ago_in_words(a_feelings_level3.created_at) %> ago
         </td>
         <td>
-          <%= time_ago_in_words(a_feelings_level_3.updated_at) %> ago
+          <%= time_ago_in_words(a_feelings_level3.updated_at) %> ago
         </td>
 
         <td>
-          <a href="/feelings_level_3s/<%= a_feelings_level_3.id %>">
+          <a href="/feelings_level3s/<%= a_feelings_level3.id %>">
             Show details
           </a>
         </td>

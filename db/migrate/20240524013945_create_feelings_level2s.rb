@@ -1,6 +1,6 @@
 class CreateFeelingsLevel2s < ActiveRecord::Migration[7.0]
   def change
-    create_table :feelings_level_2s do |t|
+    create_table :feelings_level2s do |t|
       t.string :name
       t.string :description
       t.integer :feeling_level1_id
