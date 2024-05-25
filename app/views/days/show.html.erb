@@ -15,6 +15,8 @@
               <% matching_tasks.each do |task|%>
                 <button type="button" class="btn btn-light btn-task">
                   <%= task.name %>
+                  <%= task.start_time %>
+                  <%= current_user.time_zone %>
                   <input type="checkbox">
                 </button>
               <% end %>
@@ -30,6 +32,8 @@
       <div>
         <h1><%= ((@day_end_time - @start_time) / 1.hour).round(1) %></h1>
         <p>Hours until end of day</p>
+        <p><%= @start_time%></p>
+        <p><%= @day_end_time%></p>
       </div>
 
       <div>

@@ -1,6 +1,7 @@
 class DaysController < ApplicationController
   def show
-    @start_time = Time.zone.now
+    time_zone = current_user.time_zone
+    @start_time = Time.zone.now.in_time_zone(time_zone)
 
     @start_date = @start_time.to_date
     @end_date = @start_date

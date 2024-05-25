@@ -60,16 +60,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  before_action :configure_sign_up_params, only: [:time_zone]
-  before_action :configure_account_update_params, only: [:time_zone]
-
-  GET /users/sign_up
-  def new
-    super
-  end
-
-  GET /users/edit
-  def edit
-    super
-  end
 end
